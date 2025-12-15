@@ -21,7 +21,7 @@ module.exports = async (kernel) => {
             // The regular expression pattern to monitor.
             // When this pattern occurs in the shell terminal, the shell will return,
             // and the script will go onto the next step.
-            "event": "/http:\/\/[0-9.:]+/",   
+            "event": "/(http:\/\/[0-9.:]+)/",   
 
             // "done": true will move to the next step while keeping the shell alive.
             // "kill": true will move to the next step after killing the shell.
@@ -35,7 +35,8 @@ module.exports = async (kernel) => {
         method: "local.set",
         params: {
           // the input.event is the regular expression match object from the previous step
-          url: "{{input.event[0]}}"
+          // In this example, since the pattern was "/(http:\/\/[0-9.:]+)/", input.event[1] will include the exact http url match captured by the parenthesis.
+          url: "{{input.event[1]}}"
         }
       }
     ]

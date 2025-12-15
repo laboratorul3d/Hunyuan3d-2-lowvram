@@ -41,6 +41,7 @@ module.exports = {
           "{{platform === 'darwin' ? 'uv pip install numba>0.60.0' : null}}",
           "uv pip install -r requirements.txt",
           "uv pip install sentencepiece",
+          "uv pip install gradio",
 //          "uv pip install transformers==4.49.0"
         ]
       }
